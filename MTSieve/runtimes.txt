@@ -1,0 +1,23 @@
+./mtsieve -s 100 -e 200000000 -t 1  : 0m1.861s
+./mtsieve -s 100 -e 200000000 -t 2  : 0m1.250s
+./mtsieve -s 100 -e 200000000 -t 3  : 0m1.151s
+./mtsieve -s 100 -e 200000000 -t 4  : 0m1.148s
+./mtsieve -s 100 -e 200000000 -t 5  : 0m1.097s
+./mtsieve -s 100 -e 200000000 -t 6  : 0m1.098s
+./mtsieve -s 100 -e 200000000 -t 7  : 0m1.096s
+./mtsieve -s 100 -e 200000000 -t 8  : 0m1.057s
+./mtsieve -s 100 -e 200000000 -t 9  : 0m1.002s
+./mtsieve -s 100 -e 200000000 -t 10 : 0m0.947s
+./mtsieve -s 100 -e 200000000 -t 11 : 0m0.960s
+./mtsieve -s 100 -e 200000000 -t 12 : 0m0.939s
+./mtsieve -s 100 -e 200000000 -t 13 : 0m0.954s
+./mtsieve -s 100 -e 200000000 -t 14 : 0m0.948s
+./mtsieve -s 100 -e 200000000 -t 15 : 0m0.991s
+./mtsieve -s 100 -e 200000000 -t 16 : 0m1.030s
+
+The CPU I am using is an Intel(R) Core(TM) i7-10700k CPU @ 3.80GHz. Time does not scale linearly with the number of threads, 
+but rather exponentially. As the number of threads approaches the max thread account, the time begins to plateau. Single
+threaded performance is the worst, with using 2 or more threads offering substantial improvements in performance. However,
+between 2 and 8 threads the performance increases were marginal each time. 9 threads and up offered a marginal increase in
+performance as well compared to the 2-8 thread range, with even smaller increases in performance as the thread count approached
+16. Once it hit 16 threads though, performance actually got worse by a few hundredths of a second and stayed that way.
